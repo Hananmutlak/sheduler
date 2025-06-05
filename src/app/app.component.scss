@@ -1,0 +1,21 @@
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  
+  .nav-buttons {
+    margin-left: 20px;
+    
+    button {
+      margin-right: 10px;
+      color: white;
+    }
+  }
+  
+  .credits-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .credits {
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <span>TypeScript-universitetet</span>
+  <div class="nav-buttons">
+    <button mat-button routerLink="/">Kurser</button>
+    <button mat-button routerLink="/schedule">Mitt ranschema</button>
+  </div>
+  <span class="credits-spacer"></span>
+  <span class="credits">Totalt poäng: {{ scheduleService.totalCredits }}</span>
+</mat-toolbar>
+<router-outlet></router-outlet>
