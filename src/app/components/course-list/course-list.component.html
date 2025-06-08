@@ -1,25 +1,50 @@
-<div class="courses-container">
-  <mat-card class="header-card">
-    <div class="header-content">
-      <h1>TypeScript-universitetet</h1>
-      <div class="header-links">
-        <button mat-raised-button color="primary" routerLink="/schedule">Mitt ranschema</button>
-      </div>
-    </div>
-  </mat-card>
+<div class="hero-image">
+  <div class="hero-content">
+    <h1>Välkommen till universitetet</h1>
+    <p>Utforska vårt kursutbud och skapa din utbildningsresa</p>
+  </div>
+</div>
 
+<div class="courses-container">
   <mat-card class="filter-card">
     <h2>Kurser</h2>
-    <div class="filter-section">
-      <div class="filter-title">Filtrera kurser:</div>
-      <div class="subject-filter">
-        <strong>Ämne:</strong>
-        <mat-form-field appearance="outline">
-          <mat-select [(ngModel)]="selectedSubject" (selectionChange)="applyFilters()">
-            <mat-option value="all">Alla ämnen</mat-option>
-            <mat-option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</mat-option>
-          </mat-select>
-        </mat-form-field>
+    <div class="filter-container">
+      <div class="filter-box">
+        <div class="filter-title">Filtrera kurser</div>
+        
+        <div class="subject-filter">
+          <strong>Ämne:</strong>
+          <mat-form-field appearance="outline">
+            <mat-select [(ngModel)]="selectedSubject" (selectionChange)="applyFilters()">
+              <mat-option value="all">Alla ämnen</mat-option>
+              <mat-option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        
+        <div class="search-filter">
+          <strong>Sök:</strong>
+          <mat-form-field appearance="outline">
+            <input matInput 
+                   [(ngModel)]="searchTerm" 
+                   (input)="applyFilters()"
+                   placeholder="Sök kurskod eller namn">
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <div class="filter-box">
+        <div class="filter-title">Sortera kurser</div>
+        <div class="sort-filter">
+          <strong>Sortera efter:</strong>
+          <mat-form-field appearance="outline">
+            <mat-select [(ngModel)]="sortBy" (selectionChange)="applyFilters()">
+              <mat-option value="code">Kurskod (A-Ö)</mat-option>
+              <mat-option value="name">Kursnamn (A-Ö)</mat-option>
+              <mat-option value="points">Poäng (Högsta först)</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div>
     </div>
   </mat-card>
@@ -31,54 +56,90 @@
   </mat-card>
 
   <mat-card class="table-card">
-    <table mat-table [dataSource]="filteredCourses" class="mat-elevation-z8">
-      <!-- Kod Column -->
-      <ng-container matColumnDef="code">
-        <th mat-header-cell *matHeaderCellDef> Kod </th>
-        <td mat-cell *matCellDef="let course"> {{ course.courseCode }} </td>
-      </ng-container>
+    <!-- Desktop table -->
+    <div class="desktop-table">
+      <table mat-table [dataSource]="filteredCourses" class="mat-elevation-z8">
+        <!-- Kod Column -->
+        <ng-container matColumnDef="code">
+          <th mat-header-cell *matHeaderCellDef> Kod </th>
+          <td mat-cell *matCellDef="let course"> {{ course.courseCode }} </td>
+        </ng-container>
 
-      <!-- Kursnamn Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Kursnamn </th>
-        <td mat-cell *matCellDef="let course"> {{ course.courseName }} </td>
-      </ng-container>
+        <!-- Kursnamn Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Kursnamn </th>
+          <td mat-cell *matCellDef="let course"> {{ course.courseName }} </td>
+        </ng-container>
 
-      <!-- Poäng Column -->
-      <ng-container matColumnDef="points">
-        <th mat-header-cell *matHeaderCellDef> Poäng </th>
-        <td mat-cell *matCellDef="let course"> {{ course.points }}p </td>
-      </ng-container>
+        <!-- Poäng Column -->
+        <ng-container matColumnDef="points">
+          <th mat-header-cell *matHeaderCellDef> Poäng </th>
+          <td mat-cell *matCellDef="let course"> {{ course.points }}p </td>
+        </ng-container>
 
-      <!-- Ämne Column -->
-      <ng-container matColumnDef="subject">
-        <th mat-header-cell *matHeaderCellDef> Ämne </th>
-        <td mat-cell *matCellDef="let course"> {{ course.subject }} </td>
-      </ng-container>
+        <!-- Ämne Column -->
+        <ng-container matColumnDef="subject">
+          <th mat-header-cell *matHeaderCellDef> Ämne </th>
+          <td mat-cell *matCellDef="let course"> {{ course.subject }} </td>
+        </ng-container>
 
-      <!-- Kursplan Column -->
-      <ng-container matColumnDef="syllabus">
-        <th mat-header-cell *matHeaderCellDef> Kursplan </th>
-        <td mat-cell *matCellDef="let course">
-          <a mat-button color="primary" [href]="course.syllabus" target="_blank">Kursplan</a>
-        </td>
-      </ng-container>
+        <!-- Kursplan Column -->
+        <ng-container matColumnDef="syllabus">
+          <th mat-header-cell *matHeaderCellDef> Kursplan </th>
+          <td mat-cell *matCellDef="let course">
+            <a mat-button color="primary" [href]="course.syllabus" target="_blank">Kursplan</a>
+          </td>
+        </ng-container>
 
-      <!-- Lägg till Column -->
-      <ng-container matColumnDef="add">
-        <th mat-header-cell *matHeaderCellDef> Lägg till </th>
-        <td mat-cell *matCellDef="let course">
+        <!-- Lägg till Column -->
+        <ng-container matColumnDef="add">
+          <th mat-header-cell *matHeaderCellDef> Lägg till </th>
+          <td mat-cell *matCellDef="let course">
+            <button mat-raised-button 
+                    color="primary"
+                    (click)="scheduleService.addCourse(course)"
+                    [disabled]="isCourseInSchedule(course)">
+              {{ isCourseInSchedule(course) ? 'Tillagd' : 'Lägg till' }}
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+    <!-- Mobile table -->
+    <div class="mobile-table">
+      <mat-card *ngFor="let course of filteredCourses" class="course-card">
+        <div class="course-header">
+          <span class="code">{{ course.courseCode }}</span>
+          <span class="name">{{ course.courseName }}</span>
+        </div>
+        
+        <div class="course-details">
+          <div>
+            <strong>Poäng:</strong> {{ course.points }}p
+          </div>
+          <div>
+            <strong>Ämne:</strong> {{ course.subject }}
+          </div>
+        </div>
+        
+        <div class="course-actions">
+          <a mat-button color="primary" [href]="course.syllabus" target="_blank">
+            <mat-icon>description</mat-icon> Kursplan
+          </a>
+          
           <button mat-raised-button 
                   color="primary"
                   (click)="scheduleService.addCourse(course)"
                   [disabled]="isCourseInSchedule(course)">
+            <mat-icon>{{ isCourseInSchedule(course) ? 'check' : 'add' }}</mat-icon>
             {{ isCourseInSchedule(course) ? 'Tillagd' : 'Lägg till' }}
           </button>
-        </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+        </div>
+      </mat-card>
+    </div>
   </mat-card>
 </div>

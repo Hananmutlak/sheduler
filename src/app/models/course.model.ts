@@ -1,3 +1,4 @@
+// src/app/models/course.model.ts
 export interface Course {
   courseCode: string;
   courseName: string;

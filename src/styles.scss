@@ -1,17 +1,55 @@
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+// src/styles.scss
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
   margin: 0;
-  background-color: #f5f5f5;
+  background-color: #f8f9fa;
 }
 
 mat-card {
   margin-bottom: 20px;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+/* حل مشكلة الجداول على الشاشات الصغيرة */
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+@media (max-width: 768px) {
+  .mat-table {
+    min-width: 600px; /* يجعل الجدول أوسع من الشاشة الصغيرة فيسمح بالتمرير الأفقي */
+  }
+  
+  .mat-cell, .mat-header-cell {
+    padding: 8px 12px !important;
+    font-size: 14px;
+  }
+  
+  /* تقليل عرض الأعمدة الثانوية */
+  .mat-column-code {
+    width: 80px;
+  }
+  
+  .mat-column-points {
+    width: 70px;
+  }
+  
+  .mat-column-syllabus, 
+  .mat-column-add, 
+  .mat-column-remove {
+    width: 100px;
+  }
+  
+  /* تحسين النصوص الطويلة */
+  .mobile-truncate {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }

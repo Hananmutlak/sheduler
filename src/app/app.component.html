@@ -1,10 +1,19 @@
 <mat-toolbar color="primary">
-  <span>TypeScript-universitetet</span>
-  <div class="nav-buttons">
+  <img src="assets/logo.png" alt="University Logo" class="logo">
+  
+  <div class="desktop-nav">
     <button mat-button routerLink="/">Kurser</button>
     <button mat-button routerLink="/schedule">Mitt ranschema</button>
   </div>
-  <span class="credits-spacer"></span>
-  <span class="credits">Totalt poäng: {{ scheduleService.totalCredits }}</span>
+  
+  <button mat-icon-button class="mobile-menu-button" (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
 </mat-toolbar>
+
+<div class="mobile-nav" [class.active]="menuOpen">
+  <button mat-button routerLink="/" (click)="closeMenu()">Kurser</button>
+  <button mat-button routerLink="/schedule" (click)="closeMenu()">Mitt ranschema</button>
+</div>
+
 <router-outlet></router-outlet>

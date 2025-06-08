@@ -1,30 +1,70 @@
+.hero-image {
+  background-color: #1a237e;
+  background-image: url('/assets/courses-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  
+  .hero-content {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 800px;
+    
+    h1 {
+      color: white;
+      margin: 0;
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+    }
+    
+    p {
+      color: white;
+      font-size: 1.4rem;
+      margin: 0;
+    }
+  }
+}
+
 .courses-container {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.header-card {
-  margin-bottom: 20px;
-  
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-  }
-}
-
 .filter-card {
   margin-bottom: 20px;
   padding: 20px;
   
-  .filter-section {
+  .filter-container {
     display: flex;
-    align-items: center;
     gap: 20px;
     margin-top: 15px;
+    
+    .filter-box {
+      flex: 1;
+      padding: 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      
+      .filter-title {
+        font-weight: 500;
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #ddd;
+      }
+    }
   }
+}
+
+.search-filter, .subject-filter, .sort-filter {
+  margin-bottom: 15px;
 }
 
 .results-card {
@@ -37,6 +77,69 @@
   overflow-x: auto;
 }
 
+/* Mobile styles */
+.mobile-table {
+  display: none;
+}
+
+.course-card {
+  margin-bottom: 15px;
+  
+  .course-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    
+    .code {
+      font-weight: bold;
+    }
+  }
+  
+  .course-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .course-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    
+    button, a {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .desktop-table {
+    display: none;
+  }
+  
+  .mobile-table {
+    display: block;
+  }
+  
+  .filter-card {
+    .filter-container {
+      flex-direction: column;
+      
+      .filter-box {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* Desktop table styles */
 .mat-table {
   width: 100%;
 }

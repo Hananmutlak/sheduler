@@ -1,3 +1,4 @@
+// src/app/services/schedule.service.ts
 import { Injectable, signal } from '@angular/core';
 import { Course } from '../models/course.model';
 

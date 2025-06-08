@@ -1,119 +1,96 @@
+.hero-image {
+  background-color: #2c3e50;
+  background-image: url('/assets/schedule-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .hero-content {
+    padding: 20px;
+    text-align: center;
+    
+    h1 {
+      color: white;
+      margin: 0;
+      font-size: 2rem;
+    }
+  }
+}
+
 .schedule-container {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  font-family: 'Roboto', sans-serif;
 }
 
-.header-card {
-  background-color: #3f51b5;
+.remove-button {
+  background-color: #e74c3c;
   color: white;
-  margin-bottom: 20px;
+}
+
+.credits-card {
+  margin-top: 20px;
+  background-color: #f5f5f5;
   
-  .header-content {
-    padding: 20px;
-    
-    h1 {
-      margin: 0;
-      font-size: 24px;
-      font-weight: 500;
-    }
-    
-    h2 {
-      margin: 5px 0 0 0;
-      font-size: 20px;
-      font-weight: 400;
-    }
+  .credits-content {
+    padding: 15px;
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: bold;
   }
 }
 
-.empty-card {
-  text-align: center;
-  padding: 40px;
-  background-color: #f9f9f9;
-  border: 1px solid #e0e0e0;
+/* Mobile styles */
+.mobile-table {
+  display: none;
+}
+
+.course-card {
+  margin-bottom: 15px;
   
-  mat-icon {
-    font-size: 48px;
-    width: 48px;
-    height: 48px;
-    color: #757575;
+  .course-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    
+    .code {
+      font-weight: bold;
+    }
+  }
+  
+  .course-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
     margin-bottom: 15px;
   }
   
-  p {
-    color: #757575;
-    font-size: 18px;
-    margin: 0;
-  }
-}
-
-.table-card {
-  padding: 0;
-  overflow: hidden;
-}
-
-.mat-table {
-  width: 100%;
-  border-collapse: separate;
-  
-  th.mat-header-cell {
-    background-color: #f5f5f5;
-    font-weight: 600;
-    font-size: 14px;
-    padding: 12px 16px;
-    border-bottom: 2px solid #e0e0e0;
-  }
-  
-  td.mat-cell {
-    padding: 12px 16px;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 14px;
-  }
-  
-  .mat-column-code {
-    width: 100px;
-  }
-  
-  .mat-column-points {
-    width: 80px;
-    text-align: center;
-  }
-  
-  .mat-column-syllabus {
-    width: 120px;
-    text-align: center;
-  }
-  
-  .mat-column-remove {
-    width: 120px;
-    text-align: center;
-  }
-}
-
-.total-credits {
-  margin-top: 20px;
-  
-  mat-card {
-    background-color: #f5f5f5;
-    padding: 10px 20px;
-  }
-  
-  .total-content {
+  .course-actions {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    
+    button, a {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .desktop-table {
+    display: none;
   }
   
-  .total-label {
-    font-size: 16px;
-    font-weight: 500;
-    margin-right: 10px;
-  }
-  
-  .total-value {
-    font-size: 18px;
-    font-weight: 600;
-    color: #3f51b5;
+  .mobile-table {
+    display: block;
   }
 }

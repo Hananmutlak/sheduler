@@ -1,21 +1,48 @@
-mat-toolbar {
-  display: flex;
-  justify-content: space-between;
+.logo {
+  height: 40px;
+  margin-right: 20px;
+}
+
+.mobile-nav {
+  display: none;
+  background-color: #3f51b5;
+  flex-direction: column;
+  padding: 10px;
+  transition: all 0.3s ease;
   
-  .nav-buttons {
-    margin-left: 20px;
-    
-    button {
-      margin-right: 10px;
-      color: white;
-    }
+  &.active {
+    display: flex;
   }
   
-  .credits-spacer {
-    flex: 1 1 auto;
+  button {
+    color: white !important;
+    text-align: left;
+    padding: 10px 20px;
+  }
+}
+
+.mobile-menu-button {
+  display: none;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
   }
   
-  .credits {
-    font-weight: bold;
+  .mobile-menu-button {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 30px;
+    margin-right: 10px;
+  }
+  
+  .mobile-menu-button {
+    margin-left: 5px;
   }
 }
