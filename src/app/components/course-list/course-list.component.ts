@@ -36,7 +36,7 @@ export class CourseListComponent implements OnInit, OnDestroy {
   sortBy = 'code'; // إضافة متغير الترتيب
   displayedColumns: string[] = [];
   subjects: string[] = [];
-
+ isLoaded = false;
   constructor(
     public coursesService: CoursesService,
     public scheduleService: ScheduleService

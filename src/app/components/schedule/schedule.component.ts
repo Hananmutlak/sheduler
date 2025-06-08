@@ -37,7 +37,7 @@ export class ScheduleComponent implements OnDestroy {
     this.updateDisplayedColumns();
     window.addEventListener('resize', () => this.updateDisplayedColumns());
   }
-
+ isLoaded = false;
   ngOnDestroy() {
     window.removeEventListener('resize', () => this.updateDisplayedColumns());
   }
