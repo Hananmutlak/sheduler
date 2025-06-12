@@ -14,26 +14,26 @@ export class CoursesService {
     return this.http.get<Course[]>(this.API_URL).pipe(
       retry(2), // إعادة المحاولة مرتين
       tap({
-        next: (data) => console.log('تم تحميل البيانات:', data),
-        error: (err) => console.error('حدث خطأ أثناء التحميل:', err)
-      }),
-      catchError(this.handleError)
-    );
-  }
+     next: (data) => console.log('Data har laddats:', data),
+error: (err) => console.error('Ett fel inträffade vid laddning:', err)
+}),
+catchError(this.handleError)
+);
+}
 
-  private handleError(error: HttpErrorResponse) {
-    let errorMessage = 'حدث خطأ غير معروف!';
-    
-    if (error.error instanceof ErrorEvent) {
-      // خطأ من جانب العميل
-      errorMessage = `خطأ: ${error.error.message}`;
-    } else {
-      // خطأ من الخادم
-      errorMessage = `
-        كود الخطأ: ${error.status}\n
-        الرسالة: ${error.message}
-      `;
-    }
+private handleError(error: HttpErrorResponse) {
+  let errorMessage = 'Ett okänt fel har inträffat!';
+  
+  if (error.error instanceof ErrorEvent) {
+    // Klientfel
+    errorMessage = `Fel: ${error.error.message}`;
+  } else {
+    // Serverfel
+    errorMessage = `
+      Felkod: ${error.status}\n
+      Meddelande: ${error.message}
+    `;
+  }
     
     console.error(errorMessage);
     return throwError(() => new Error(errorMessage));
