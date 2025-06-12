@@ -37,7 +37,7 @@ mat-card {
   }
 }
 
-/* تحسين الصور */
+
 img {
   max-width: 100%;
   height: auto;
@@ -330,7 +330,7 @@ img {
   }
 }
 
-/* حل مشكلة الجداول على الشاشات الصغيرة */
+
 .table-container {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -384,7 +384,7 @@ img {
   }
 }
 
-/* مؤشر التحميل */
+
 .loading-screen {
   position: fixed;
   top: 0;
@@ -420,7 +420,6 @@ img {
   100% { transform: rotate(360deg); }
 }
 
-/* تحسينات إضافية للأداء */
 button, a {
   transition: all 0.3s ease;
 }
