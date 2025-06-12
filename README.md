@@ -1,25 +1,21 @@
-# University Course Scheduler
+# Universitetskursplanerare
 
+En omfattande applikation för schemaläggning av universitetskurser byggd med Angular och TypeScript. Applikationen gör det möjligt för studenter att bläddra bland tillgängliga kurser, filtrera och sortera dem samt skapa ett personligt kursschema.
 
+## Funktioner
 
-A comprehensive university course scheduling application built with Angular and TypeScript. This application allows students to browse available courses, filter and sort them, and create their personal course schedules.
+- **Kursöversikt**: Visa alla tillgängliga universitetskurser  
+- **Avancerad filtrering**: Filtrera kurser efter ämne, sök efter namn eller kurskod  
+- **Sorteringsfunktion**: Sortera kurser efter kod, namn eller antal högskolepoäng  
+- **Personligt schema**: Lägg till kurser i ett personligt schema  
+- **Poängsammanställning**: Automatisk beräkning av totala högskolepoäng  
+- **Responsiv design**: Fungerar på datorer, surfplattor och mobila enheter  
+- **Lokal lagring**: Sparar schemat mellan sessioner i webbläsaren  
 
-## Features
+## Använd teknik
 
-- **Course Browsing**: View all available university courses
-- **Advanced Filtering**: Filter courses by subject, search by name or code
-- **Sorting System**: Sort courses by code, name, or credit points
-- **Personal Schedule**: Save selected courses to your personal schedule
-- **Credit Summary**: Automatically calculate total credit points
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **Bilingual Support**: Arabic and English interfaces
-- **Local Storage**: Saves your schedule between sessions
-
-## Technologies Used
-
-- Angular 19
-- TypeScript 5.7
-- Angular Material
-- RxJS
+- Angular 19  
+- TypeScript 5.7  
+- Angular Material  
+- RxJS  
 - HTML5/CSS3/SCSS
-
